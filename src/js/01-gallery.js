@@ -21,15 +21,31 @@ function imageGelleryMarkup(galleryItem) {
   }).join('');
   
 };
-// console.log();
-// console.log()
-container.insertAdjacentHTML('beforeend', imageGelleryMarkup(galleryItems) )
-//  console.log()
+// container.insertAdjacentHTML('beforeend', imageGelleryMarkup(galleryItems) )
+container.innerHTML = imageGelleryMarkup(galleryItems) 
+// console.log(container);
+ container.addEventListener( 'click', returnBigImage);
+ let bigImage = {};
 
-console.log(container);
+function returnBigImage(e){
+  e.preventDefault();
+ 
+ if(e.target.nodeName !== 'IMG') {
+  return;
+ };
 
-container.addEventListener( 'click', getGallery );
+const url = e.target.dataset.source;
 
-function getGallery(){
-
+bigImage = basicLightbox.create(`<img src="${url}" width="800" height="600">`);
+  
+ bigImage.show();
+window.addEventListener('keydown', onCloseEsc);
 };
+
+function onCloseEsc(e){
+  if(e.code !== 'Escape') {
+    return;
+   };
+   bigImage.close();
+   window.removeEventListener('keydown', onCloseEsc);
+}

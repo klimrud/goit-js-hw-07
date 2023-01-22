@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 const galleryEl = document.querySelector('.gallery');
 
@@ -22,5 +22,32 @@ function imageGelleryMarkup(galleryItem) {
 };
 // console.log();
  
-galleryEl.insertAdjacentHTML('beforeend', imageGelleryMarkup(galleryItems) )
-console.log(galleryEl)
+//  galleryEl.insertAdjacentHTML('beforeend', imageGelleryMarkup(galleryItems) )
+galleryEl.innerHTML = imageGelleryMarkup(galleryItems) ;
+// console.log(galleryEl);
+
+//  galleryEl.addEventListener( 'click', returnBigImage);
+let lightbox = {}
+
+// function returnBigImage(e){
+//   e.preventDefault();
+//  if(e.target.nodeName !== 'IMG') {
+//   return;
+//  };
+// //  console.log(e.target.dataset)
+
+//  lightbox = new SimpleLightbox(".gallery a", {
+//   captionsData: "alt",
+//   captionDelay: 250,
+//   scrollZoom: false,
+// });
+//   close.simpleLightbox();
+// };
+
+lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  scrollZoom: false,
+});
+
+//  close.simpleLightbox;
