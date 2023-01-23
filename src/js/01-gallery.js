@@ -38,7 +38,7 @@ const url = e.target.dataset.source;
 
 bigImage = basicLightbox.create(`<img src="${url}" width="800" height="600">`);
   
- bigImage.show();
+     bigImage.show();
 window.addEventListener('keydown', onCloseEsc);
 };
 
